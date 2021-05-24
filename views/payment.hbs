@@ -1,0 +1,23 @@
+{{!-- Hidden divs with data passed from the Express server --}}
+<div id="paymentMethodsResponse" class="hidden">{{{ response }}}</div>
+<div id="clientKey" class="hidden">{{ clientKey }}</div>
+
+<div id="payment-page">
+    <div><h3>Check out</h3></div>
+    <div class="flex-container ">
+        {{> customerform}}
+        <div class="flex-child" id="dropin-container"></div>
+    </div>
+</div>
+
+<script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.23.0/adyen.js"
+        integrity="sha384-fErYEDZTTzeO2aEcuTtsB49H+E6rwz7ODY7lMfb2/H9WKf20W0KaMbQFS17q6YE/"
+        crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+      href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.23.0/adyen.css"
+      integrity="sha384-2ZygKOnU23yWkltsfDRsIMKXUBpYbr9Jx8kmIcgRnnoniBN6hwnyCr87XoYVv8Ux"
+      crossorigin="anonymous">
+
+
+<script type="module" src="../javascripts/adyenImplementation.js"></script>

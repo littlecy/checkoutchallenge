@@ -1,0 +1,36 @@
+curl https://checkout-test.adyen.com/v66/payments \
+-H 'x-api-key: AQEyhmfxLI3MaBFLw0m/n3Q5qf3VaY9UCJ14XWZE03G/k2NFitRvbe4N1XqH1eHaH2AksaEQwV1bDb7kfNy1WIxIIkxgBw==-y3qzswmlmALhxaVPNjYf74bqPotG12HroatrKA066yE=-W+t7NF;s4}%=kUSD' \
+-H 'content-type: application/json' \
+-d '{
+  "merchantAccount": "AdyenRecruitmentCOM",
+  "reference": "My first Adyen test payment",
+  "amount": {
+    "value": 1000,
+    "currency": "EUR"
+  },
+    "paymentMethod": {
+    "type": "scheme",
+    "encryptedCardNumber": "test_4111111111111111",
+    "encryptedExpiryMonth": "test_03",
+    "encryptedExpiryYear": "test_2030",
+    "encryptedSecurityCode": "test_737"
+  }
+}'
+
+
+curl https://checkout-test.adyen.com/v66/paymentMethods \
+-H 'x-api-key: AQEyhmfxLI3MaBFLw0m/n3Q5qf3VaY9UCJ14XWZE03G/k2NFitRvbe4N1XqH1eHaH2AksaEQwV1bDb7kfNy1WIxIIkxgBw==-y3qzswmlmALhxaVPNjYf74bqPotG12HroatrKA066yE=-W+t7NF;s4}%=kUSD' \
+-H "content-type: application/json" \
+-d '{
+  "merchantAccount": "AdyenRecruitmentCOM"
+
+}'
+
+
+  "countryCode": "CN",
+    "amount": {
+      "currency": "USD",
+      "value": 4700
+    },
+    "splitCardFundingSources": true
+
