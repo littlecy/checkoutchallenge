@@ -8,16 +8,11 @@ const {uuid} = require('uuidv4');
 const url = require("url");
 var router = express.Router();
 
+
 var config = new Config();
 config.apiKey = process.env.API_KEY;
 config.merchantAccount = process.env.MERCHANT_ACCOUNT;
 config.environment = "TEST";
-
-
-
-router.get("/success", function(req, res, next){
-    res.render("success");
-})
 
 
 /* GET home page. */
@@ -41,7 +36,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
+// add item to shopping cart
 router.get("/add-to-cart/:id", function (req, res, next){
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart:{items:{}});
@@ -210,7 +205,6 @@ router.post("/api/initiatePayment",async (req, res) => {
 // call: api /payment/details
 router.post("/api/submitAdditionalDetails", async(req, res, next)=>{
 
-    console.log("additional data body ---", req.body);
     axios.post('https://checkout-test.adyen.com/v66/payments/details', req.body,{headers: {
             'Authorization': process.env.API_KEY}})
         .then(function(response) {

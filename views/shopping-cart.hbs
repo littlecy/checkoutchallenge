@@ -1,9 +1,9 @@
 {{# if products }}
 
-    <div class="row">
+    <div class="row ">
 
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-            <ul class="list-group">
+            <ul class="list-group list-group-flush">
                 {{# each products}}
                 <li class="list-group-item">
                     <span class="badge">{{this.qty}}</span>
@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-            <strong>Total Price: {{this.totalPrice}}</strong>
+            <strong>Total Price: ${{this.totalPrice}}</strong>
             <hr/>
         </div>
     </div>

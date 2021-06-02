@@ -3,6 +3,7 @@
 
 var createError = require('http-errors');
 var express = require('express');
+var favicon = require('express-favicon');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,6 +11,8 @@ var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 var session = require("express-session");
 var MongoStore = require("connect-mongodb-session")(session);
+require('dotenv').config();
+
 
 
 
@@ -19,8 +22,12 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+
 // connect mongodb
-mongoose.connect("mongodb+srv://nichenying:199072Ni2@cluster0.iyyre.mongodb.net/shopping?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
+
+var db_connection = process.env.MONGO_DB_CONNECTION;
+mongoose.connect(db_connection,{useNewUrlParser:true, useUnifiedTopology:true});
 
 
 /*mongodb
